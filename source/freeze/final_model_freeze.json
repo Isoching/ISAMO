@@ -1,0 +1,369 @@
+{
+  "schema_version": "V30-final-development-model-freeze-1.0.0",
+  "generated_at_utc": "2026-08-26T02:47:46.164950+00:00",
+  "status": "FROZEN_BEFORE_LOCKBOX_OPENING",
+  "development_stopping_decision": "BUDGET_EXHAUSTED_NO_PLATEAU",
+  "scientific_limitation": "The active-learning budget ended without the required two-transition plateau. All selected-variant STOP fixed-range NRMSE development estimates are below 5%, but STOP is not independent evidence and the 5% success floor can only be decided on the post-freeze confirmation96.",
+  "selection_rule": "lowest mean fixed-range STOP NRMSE subject to every legacy guardrail; variants within 1% of the best use the simpler/frozen-global tie-break",
+  "selected_variant": "pooled_all_al",
+  "selected_stop_metrics": {
+    "by_target": [
+      {
+        "target": "carbon_utilization",
+        "rmse": 0.014048281967556692,
+        "mae": 0.010181114246882336,
+        "nrmse_pct": 3.3836919490249198
+      },
+      {
+        "target": "specific_energy_kwh_per_kg_meoh",
+        "rmse": 0.7399612938460263,
+        "mae": 0.48539257147121323,
+        "nrmse_pct": 1.8178605307048632
+      },
+      {
+        "target": "capex_proxy",
+        "rmse": 0.011817178356416772,
+        "mae": 0.011057619394929979,
+        "nrmse_pct": 1.3010170350741501
+      }
+    ],
+    "mean_fixed_range_nrmse_pct": 2.1675231716013106
+  },
+  "selected_legacy_metrics": {
+    "by_target": [
+      {
+        "target": "carbon_utilization",
+        "rmse": 0.005449580406447432,
+        "mae": 0.0031575524497467113,
+        "nrmse_pct": 1.3125947635052486
+      },
+      {
+        "target": "specific_energy_kwh_per_kg_meoh",
+        "rmse": 0.37433510017491084,
+        "mae": 0.2640144719059215,
+        "nrmse_pct": 0.9196278366514398
+      },
+      {
+        "target": "capex_proxy",
+        "rmse": 0.008585323932751318,
+        "mae": 0.006685606814067876,
+        "nrmse_pct": 0.9452047139556032
+      }
+    ],
+    "mean_fixed_range_nrmse_pct": 1.0591424380374306
+  },
+  "variant_detail": {
+    "v29_frozen_baseline": {
+      "stop_metrics": {
+        "by_target": [
+          {
+            "target": "carbon_utilization",
+            "rmse": 0.08381831743424233,
+            "mae": 0.08161266972105795,
+            "nrmse_pct": 20.188615699631193
+          },
+          {
+            "target": "specific_energy_kwh_per_kg_meoh",
+            "rmse": 2.5033851972318475,
+            "mae": 1.7970628272817037,
+            "nrmse_pct": 6.150058362573668
+          },
+          {
+            "target": "capex_proxy",
+            "rmse": 0.05701126325896726,
+            "mae": 0.05355472469348202,
+            "nrmse_pct": 6.276678108250553
+          }
+        ],
+        "mean_fixed_range_nrmse_pct": 10.87178405681847
+      },
+      "legacy_metrics": {
+        "by_target": [
+          {
+            "target": "carbon_utilization",
+            "rmse": 0.0056068132307275,
+            "mae": 0.0030200214614827083,
+            "nrmse_pct": 1.350466116234898
+          },
+          {
+            "target": "specific_energy_kwh_per_kg_meoh",
+            "rmse": 0.38541107963609805,
+            "mae": 0.260653527148347,
+            "nrmse_pct": 0.9468381597708266
+          },
+          {
+            "target": "capex_proxy",
+            "rmse": 0.008619787210778211,
+            "mae": 0.006681262420478043,
+            "nrmse_pct": 0.9489989625016734
+          }
+        ],
+        "mean_fixed_range_nrmse_pct": 1.082101079502466
+      },
+      "legacy_guardrail": [
+        {
+          "target": "carbon_utilization",
+          "absolute_worsening_pp": 0.0,
+          "relative_worsening_pct": 0.0,
+          "pass": true
+        },
+        {
+          "target": "specific_energy_kwh_per_kg_meoh",
+          "absolute_worsening_pp": 0.0,
+          "relative_worsening_pct": 0.0,
+          "pass": true
+        },
+        {
+          "target": "capex_proxy",
+          "absolute_worsening_pp": 0.0,
+          "relative_worsening_pct": 0.0,
+          "pass": true
+        }
+      ]
+    },
+    "pooled_existing60": {
+      "stop_metrics": {
+        "by_target": [
+          {
+            "target": "carbon_utilization",
+            "rmse": 0.02353935506264059,
+            "mae": 0.01694030083450287,
+            "nrmse_pct": 5.669727187612026
+          },
+          {
+            "target": "specific_energy_kwh_per_kg_meoh",
+            "rmse": 1.0509009424713556,
+            "mae": 0.6003438374879001,
+            "nrmse_pct": 2.5817449654288813
+          },
+          {
+            "target": "capex_proxy",
+            "rmse": 0.007009797122826939,
+            "mae": 0.005924216008386272,
+            "nrmse_pct": 0.7717464519996425
+          }
+        ],
+        "mean_fixed_range_nrmse_pct": 3.007739535013517
+      },
+      "legacy_metrics": {
+        "by_target": [
+          {
+            "target": "carbon_utilization",
+            "rmse": 0.005599058738561218,
+            "mae": 0.0029862442863872866,
+            "nrmse_pct": 1.3485983566916016
+          },
+          {
+            "target": "specific_energy_kwh_per_kg_meoh",
+            "rmse": 0.3697202618153182,
+            "mae": 0.25660325159290875,
+            "nrmse_pct": 0.908290578095816
+          },
+          {
+            "target": "capex_proxy",
+            "rmse": 0.008427011545030262,
+            "mae": 0.006558617266582959,
+            "nrmse_pct": 0.9277752475401694
+          }
+        ],
+        "mean_fixed_range_nrmse_pct": 1.061554727442529
+      },
+      "legacy_guardrail": [
+        {
+          "target": "carbon_utilization",
+          "absolute_worsening_pp": -0.0018677595432965433,
+          "relative_worsening_pct": -0.13830480608457324,
+          "pass": true
+        },
+        {
+          "target": "specific_energy_kwh_per_kg_meoh",
+          "absolute_worsening_pp": -0.0385475816750106,
+          "relative_worsening_pct": -4.071190126551373,
+          "pass": true
+        },
+        {
+          "target": "capex_proxy",
+          "absolute_worsening_pp": -0.021223714961503992,
+          "relative_worsening_pct": -2.2364318402999905,
+          "pass": true
+        }
+      ]
+    },
+    "pooled_all_al": {
+      "stop_metrics": {
+        "by_target": [
+          {
+            "target": "carbon_utilization",
+            "rmse": 0.014048281967556692,
+            "mae": 0.010181114246882336,
+            "nrmse_pct": 3.3836919490249198
+          },
+          {
+            "target": "specific_energy_kwh_per_kg_meoh",
+            "rmse": 0.7399612938460263,
+            "mae": 0.48539257147121323,
+            "nrmse_pct": 1.8178605307048632
+          },
+          {
+            "target": "capex_proxy",
+            "rmse": 0.011817178356416772,
+            "mae": 0.011057619394929979,
+            "nrmse_pct": 1.3010170350741501
+          }
+        ],
+        "mean_fixed_range_nrmse_pct": 2.1675231716013106
+      },
+      "legacy_metrics": {
+        "by_target": [
+          {
+            "target": "carbon_utilization",
+            "rmse": 0.005449580406447432,
+            "mae": 0.0031575524497467113,
+            "nrmse_pct": 1.3125947635052486
+          },
+          {
+            "target": "specific_energy_kwh_per_kg_meoh",
+            "rmse": 0.37433510017491084,
+            "mae": 0.2640144719059215,
+            "nrmse_pct": 0.9196278366514398
+          },
+          {
+            "target": "capex_proxy",
+            "rmse": 0.008585323932751318,
+            "mae": 0.006685606814067876,
+            "nrmse_pct": 0.9452047139556032
+          }
+        ],
+        "mean_fixed_range_nrmse_pct": 1.0591424380374306
+      },
+      "legacy_guardrail": [
+        {
+          "target": "carbon_utilization",
+          "absolute_worsening_pp": -0.03787135272964948,
+          "relative_worsening_pct": -2.8043171371996265,
+          "pass": true
+        },
+        {
+          "target": "specific_energy_kwh_per_kg_meoh",
+          "absolute_worsening_pp": -0.02721032311938687,
+          "relative_worsening_pct": -2.8738093029512957,
+          "pass": true
+        },
+        {
+          "target": "capex_proxy",
+          "absolute_worsening_pp": -0.0037942485460701336,
+          "relative_worsening_pct": -0.39981587925744894,
+          "pass": true
+        }
+      ]
+    },
+    "gated_local_residual": {
+      "stop_metrics": {
+        "by_target": [
+          {
+            "target": "carbon_utilization",
+            "rmse": 0.030468347468903954,
+            "mae": 0.02641447840239094,
+            "nrmse_pct": 7.33865552162993
+          },
+          {
+            "target": "specific_energy_kwh_per_kg_meoh",
+            "rmse": 1.5253829618741048,
+            "mae": 0.8143732205065516,
+            "nrmse_pct": 3.747403416451696
+          },
+          {
+            "target": "capex_proxy",
+            "rmse": 0.01737217368645901,
+            "mae": 0.013532390230739466,
+            "nrmse_pct": 1.9125964947526894
+          }
+        ],
+        "mean_fixed_range_nrmse_pct": 4.332885144278105
+      },
+      "legacy_metrics": {
+        "by_target": [
+          {
+            "target": "carbon_utilization",
+            "rmse": 0.005572790406140203,
+            "mae": 0.0030035104907231106,
+            "nrmse_pct": 1.3422713235972654
+          },
+          {
+            "target": "specific_energy_kwh_per_kg_meoh",
+            "rmse": 0.38552774262376677,
+            "mae": 0.260733877461652,
+            "nrmse_pct": 0.9471247653574174
+          },
+          {
+            "target": "capex_proxy",
+            "rmse": 0.008522948555464083,
+            "mae": 0.006624587322971244,
+            "nrmse_pct": 0.9383374715418672
+          }
+        ],
+        "mean_fixed_range_nrmse_pct": 1.0759111868321833
+      },
+      "legacy_guardrail": [
+        {
+          "target": "carbon_utilization",
+          "absolute_worsening_pp": -0.008194792637632675,
+          "relative_worsening_pct": -0.6068121620466695,
+          "pass": true
+        },
+        {
+          "target": "specific_energy_kwh_per_kg_meoh",
+          "absolute_worsening_pp": 0.0002866055865907713,
+          "relative_worsening_pct": 0.030269754512232745,
+          "pass": true
+        },
+        {
+          "target": "capex_proxy",
+          "absolute_worsening_pp": -0.010661490959806175,
+          "relative_worsening_pct": -1.123446007959927,
+          "pass": true
+        }
+      ]
+    }
+  },
+  "variant_comparison_sha256": "f78d152039467f95723a8184ede8ac2699687a1ec7d679ee144e5bbf04d849d2",
+  "permitted_local_development_rows": 186,
+  "permitted_local_hash_set_sha256": "7764175f49a2aa4718d9ff3ca275903648669e75e33277292a89ee4a0e8d03b2",
+  "stop_rows_used_for_selection_never_train": 30,
+  "legacy_holdout_rows_used_for_guardrail_never_refit": 600,
+  "fixed_region60_opened": false,
+  "global40_opened": false,
+  "confirmation96_opened": false,
+  "frozen_v29_model_set_sha256": "c7cb6e1d6d1b8d351504787d00a583c4e8e4f4f7a86a6e7909a0a74abdf8c8e8",
+  "portable_recovery_binding_sha256": "f322853bcffd066671061ea01484992108b853f43aec93b6bfbec2c7d5ff9f1c",
+  "selected_model_assets": {
+    "carbon_utilization": {
+      "path": "outputs/V30_publication_validation_execution/phase3_final_model/final_freeze/models/carbon_utilization.joblib",
+      "bytes": 578876359,
+      "sha256": "59d21a0dd5c5e367aa8d911941eb10be65c45537849933fbf9f2abb359a311fe"
+    },
+    "specific_energy_kwh_per_kg_meoh": {
+      "path": "outputs/V30_publication_validation_execution/phase3_final_model/final_freeze/models/specific_energy_kwh_per_kg_meoh.joblib",
+      "bytes": 422210759,
+      "sha256": "b34498ab163a4943d2619b0988f4cbf2942322080bf324ff6ee792bfad0b91e3"
+    },
+    "capex_proxy": {
+      "path": "outputs/V30_publication_validation_execution/phase3_final_model/final_freeze/models/capex_proxy.joblib",
+      "bytes": 118633108,
+      "sha256": "9864b5b40aea31a82114fb8bc6e77efe4cb6bc85481a4212c602671da88e2cbc"
+    }
+  },
+  "candidate_scored": {
+    "path": "outputs/V30_publication_validation_execution/phase3_final_model/final_freeze/V30_final_candidate_scored.csv",
+    "rows": 76468,
+    "sha256": "b79acfa818d0d8f7fae6270dbe25f1b47b380990986d92ccc51c82829e791944"
+  },
+  "predicted_front": {
+    "path": "outputs/V30_publication_validation_execution/phase3_final_model/final_freeze/V30_final_predicted_front.csv",
+    "rows": 589,
+    "sha256": "784175dd6fa3e4b7ec7f5f220f377e2ed74de6fefe9f1fcb4555053c3ad1ccd4"
+  },
+  "protocol_config_sha256": "8e04f94aa0065b84ed249dead75feb27393fda988b6aa46eaf89a8d4612f74a0",
+  "analysis_code_sha256": "20f2437838fe5ed8db0978fbbbd25a379e26e6630d68558bd2dcf333c7589a35",
+  "freeze_binding_sha256": "8a24b6f8c45ca0f56fa1d6a33407bec30030157d1f83590212a4b20d114405d6"
+}

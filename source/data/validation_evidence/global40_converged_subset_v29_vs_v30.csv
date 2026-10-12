@@ -1,0 +1,4 @@
+target,converged_subset_n,v29_baseline_rmse,selected_v30_rmse,selected_v30_relative_change_vs_v29_pct,formal_gate_assessable,interpretation
+carbon_utilization,12,0.005519611266405703,0.009634470538458124,74.54980203219932,False,DESCRIPTIVE_CONVERGED_SUBSET_ONLY; 12/40 converged
+specific_energy_kwh_per_kg_meoh,12,0.7235327619646208,0.7635611868543413,5.53235831105016,False,DESCRIPTIVE_CONVERGED_SUBSET_ONLY; 12/40 converged
+capex_proxy,12,0.0067630767569896244,0.00803277143689191,18.773920887265696,False,DESCRIPTIVE_CONVERGED_SUBSET_ONLY; 12/40 converged

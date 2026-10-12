@@ -1,0 +1,99 @@
+{
+  "contract_version": "V30-target-reconstruction-1.0.1",
+  "source_target_definition_sha256": "09a938f8ed0265ea95953b520521b635c981110732380b62bfb1600df01eba6a",
+  "annualisation_hours_per_year": {
+    "legacy_MeOH_yield_kt_y": 8400.0,
+    "V30_SEC_reconstruction": 8760.0
+  },
+  "operating_hours_per_year": 8760.0,
+  "legacy_meoh_yield_reconstruction": {
+    "output_column": "MeOH_yield_kt_y",
+    "primitive_raw_column": "Component_molar_flowrate_methanol",
+    "formula": "Component_molar_flowrate_methanol * 8400 * 32.04 / 1e6",
+    "annualisation_hours_per_year": 8400.0,
+    "methanol_molar_mass_kg_per_kmol": 32.04
+  },
+  "v30_sec_reconstruction": {
+    "output_column": "specific_energy_kwh_per_kg_meoh_rebuilt",
+    "power_column": "allpower_kw",
+    "yield_column": "MeOH_yield_kt_y",
+    "formula": "allpower_kw / (MeOH_yield_kt_y * 1e6 / 8760)",
+    "annualisation_hours_per_year": 8760.0,
+    "rule": "The legacy MeOH_yield_kt_y field remains annualised at 8400 h/y, while the frozen V30 SEC denominator uses 8760 h/y. Never silently substitute one basis for the other."
+  },
+  "diagnostic_reconstruction_contract": {
+    "capture_co2_feed_molar_flow": 11.8,
+    "primitive_raw_columns": {
+      "CO2_CAP": "Component_molar_flowrate_carbon_dioxide_CAP",
+      "CO_CE": "Component_molar_flowrate_carbon_monoxide_CE",
+      "H2_WE": "Component_molar_flowrate_hydrogen_WE",
+      "H2_CE": "Component_molar_flowrate_hydrogen_CE",
+      "CO2_CE": "Component_molar_flowrate_carbon_dioxide_CE"
+    },
+    "formulas": {
+      "CAP_conversion": "CO2_CAP / 11.8",
+      "eCO2R_conversion": "CO_CE / (CAP_conversion * 11.8)",
+      "S": "(H2_WE + H2_CE - CO2_CE) / (CO_CE + CO2_CE)"
+    },
+    "expanded_formulas": {
+      "CAP_conversion": "Component_molar_flowrate_carbon_dioxide_CAP / 11.8",
+      "eCO2R_conversion": "Component_molar_flowrate_carbon_monoxide_CE / ((Component_molar_flowrate_carbon_dioxide_CAP / 11.8) * 11.8)",
+      "S": "(Component_molar_flowrate_hydrogen_WE + Component_molar_flowrate_hydrogen_CE - Component_molar_flowrate_carbon_dioxide_CE) / (Component_molar_flowrate_carbon_monoxide_CE + Component_molar_flowrate_carbon_dioxide_CE)"
+    },
+    "cross_check_tolerances": {
+      "relative": 1e-09,
+      "absolute": 1e-12
+    },
+    "rule": "Primitive raw columns are authoritative. Rebuild a missing diagnostic; when a diagnostic is supplied, require agreement with the primitive-raw reconstruction within both frozen tolerances."
+  },
+  "capex_proxy_weights": {
+    "capex_eco2r_area_m2": 0.35,
+    "capex_we_area_m2": 0.25,
+    "total_electric_power_kw": 0.2,
+    "P_Cap": 0.1,
+    "P_MeOH": 0.1
+  },
+  "capex_proxy_references": {
+    "capex_eco2r_area_m2": 24.454062499999996,
+    "capex_we_area_m2": 731.025,
+    "total_electric_power_kw": 5843.117266448,
+    "P_Cap": 4.50402832,
+    "P_MeOH": 54.967041019999996
+  },
+  "geometry_constants_m": {
+    "eCO2R_side_length": 0.175,
+    "WE_side_length": 1.71
+  },
+  "derived_target_mapping": {
+    "specific_energy_kwh_per_kg_meoh": "allpower_kw / (MeOH_yield_kt_y * 1e6 / 8760)",
+    "absolute_electrolyzer_area_m2": "N_eCO2R * (0.175*0.175) + N_WE * (1.710*1.710)",
+    "capex_proxy": "0.35*(A_eCO2R/median(A_eCO2R)) + 0.25*(A_WE/median(A_WE)) + 0.20*(Total_ele_power_kw/median(Total_ele_power_kw)) + 0.10*(P_Cap/median(P_Cap)) + 0.10*(P_MeOH/median(P_MeOH))",
+    "co2_emissions_kg_per_kg_meoh": "CO2_PER_MEOH_STOICH * (1 / MeOH_conversion - 1) + Total_ele_power_kw * 0.177 / (MeOH_yield_kt_y * 1e6 / 8760)",
+    "carbon_utilization": "Equivalent to methanol-yield carbon flow divided by inferred constant flue-gas CO2 feed."
+  },
+  "feature_units": {
+    "P_Cap": "bar",
+    "J_eCO2R": "A/cm2",
+    "T_eCO2R": "K",
+    "N_eCO2R": "count",
+    "P_WE": "MW",
+    "N_WE": "count",
+    "P_MeOH": "bar",
+    "T_utility": "K"
+  },
+  "target_units": {
+    "MeOH_conversion": "dimensionless fraction",
+    "E_sys": "legacy dimensionless ratio of methanol LHV energy output to total system energy input",
+    "specific_energy_kwh_per_kg_meoh": "kWh/kg MeOH",
+    "absolute_electrolyzer_area_m2": "m2",
+    "capex_proxy": "dimensionless normalized equipment/process-scale proxy",
+    "co2_emissions_kg_per_kg_meoh": "kg CO2e/kg MeOH",
+    "I_MeOH_m2_kg_h": "legacy m2/(kg/h), retained for traceability but not optimized"
+  },
+  "target_directions": {
+    "MeOH_conversion": "maximize",
+    "specific_energy_kwh_per_kg_meoh": "minimize",
+    "capex_proxy": "minimize"
+  },
+  "rule": "Frozen from the original 3,000-row source. Do not recompute CAPEX proxy reference medians after adding labels."
+}

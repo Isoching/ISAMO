@@ -1,0 +1,214 @@
+{
+  "protocol_version": "V30-publication-1.0.1",
+  "frozen_before_new_labels": true,
+  "reference_execution_environment": {
+    "python": "3.12.13",
+    "numpy": "2.5.1",
+    "pandas": "3.0.5",
+    "scikit_learn": "1.9.0",
+    "xgboost": "3.3.0",
+    "joblib": "1.5.3",
+    "rule": "Record the observed macOS training environment separately from the validated Windows reproduction environment. Direct-load first; only amendment A9 permits the exact inference-only stable-UBJSON-Model recovery after the audited error. Never resume training from that recovery or ignore any warning except the one exact acknowledged joblib/NumPy deprecation."
+  },
+  "hash_contract": {
+    "canonical_feature_order": [
+      "P_Cap",
+      "J_eCO2R",
+      "T_eCO2R",
+      "N_eCO2R",
+      "P_WE",
+      "N_WE",
+      "P_MeOH",
+      "T_utility"
+    ],
+    "continuous_format": ".10f",
+    "integer_format": "rounded integer base-10",
+    "separator": "|",
+    "algorithm": "SHA256(UTF-8 canonical string)",
+    "authoritative_exchange": "CSV; read with pandas float_precision='round_trip'. Excel must reproduce canonical_input_string_10dp before hash checks."
+  },
+  "fixed_input_bounds": {
+    "P_Cap": {
+      "min": 3.000732422,
+      "max": 5.998535156
+    },
+    "J_eCO2R": {
+      "min": 0.200292969,
+      "max": 0.799853516
+    },
+    "T_eCO2R": {
+      "min": 323.1597656,
+      "max": 363.1304688
+    },
+    "N_eCO2R": {
+      "min": 321.0,
+      "max": 1280.0
+    },
+    "P_WE": {
+      "min": 1.001953125,
+      "max": 4.999023438
+    },
+    "N_WE": {
+      "min": 100.0,
+      "max": 400.0
+    },
+    "P_MeOH": {
+      "min": 40.01464844,
+      "max": 69.99267578
+    },
+    "T_utility": {
+      "min": 493.1695313,
+      "max": 533.1402344
+    }
+  },
+  "fixed_target_ranges": {
+    "carbon_utilization": 0.41517615016949144,
+    "specific_energy_kwh_per_kg_meoh": 40.705064076566494,
+    "capex_proxy": 0.90830312269841
+  },
+  "active_learning": {
+    "minimum_rounds": 3,
+    "maximum_rounds": 4,
+    "batch_size": 32,
+    "selection_seed_base": 20260825,
+    "round_seed_rule": "selection_seed_base + al_round",
+    "quotas": {
+      "dominance_uncertain": 16,
+      "front_maximin": 8,
+      "near_front_shell": 4,
+      "global_sentinel": 4
+    },
+    "normalisation": {
+      "input": "frozen legacy-3000 min-max; joint input block divided by sqrt(8)",
+      "objective": "cost orientation [-CU, SEC, CAPEX]; frozen current-round predicted-front ideal/nadir; objective block divided by sqrt(3)",
+      "rank_method": "pandas rank(method='average', pct=True)"
+    },
+    "scores": {
+      "local_error_knn": "5-NN inverse-distance mean of range-normalised absolute PREQUERY residuals from labelled local cases",
+      "committee_disagreement": "RMS across target ensemble SD divided by fixed target ranges",
+      "dominance_ambiguity": "committee_disagreement/(committee_disagreement + objective_distance_to_front + 1e-12)",
+      "pareto_local_risk": "0.40*rank(local_error_knn)+0.35*rank(committee_disagreement)+0.25*rank(input_AD_distance)",
+      "near_front_challenge": "0.45*rank(front_proximity)+0.30*pareto_local_risk+0.25*dominance_ambiguity",
+      "global_sentinel": "0.55*rank(input_AD_distance)+0.25*rank(committee_disagreement)+0.20*rank(boundary_stress)"
+    },
+    "near_front_pool": "non-front rows at or below the 8th percentile of positive normalised objective distance to the current predicted front",
+    "greedy_rule": {
+      "prefilter": "top 5,000 eligible rows by stratum priority; candidate_id ascending resolves exact score ties",
+      "utility": "0.68*normalised_priority + 0.32*percentile_rank(min_joint_distance_to_labelled_reserved_and_selected)",
+      "front_maximin_priority_weight": 0.48,
+      "selection": "argmax utility; update minimum joint distance after every selection"
+    },
+    "forbidden": [
+      "all original 3,000 input hashes",
+      "existing 60",
+      "STOP_30",
+      "fixed-V29-region test 60",
+      "global locked 40",
+      "all previous acquisitions",
+      "all post-freeze confirmation points once issued"
+    ]
+  },
+  "iterative_stop": {
+    "evidence": "STOP_30 plus legacy-holdout global guardrail only; STOP_30 is not independent validation and is not final conformal calibration evidence",
+    "consecutive_rounds_required": 2,
+    "all_conditions_required": true,
+    "round_hypervolume_contract": {
+      "orientation": "minimise [-CU, SEC, CAPEX]",
+      "fixed_v29_ideal": [
+        -0.8758746627036134,
+        16.077161973706595,
+        0.5298586620563953
+      ],
+      "fixed_v29_nadir": [
+        -0.3692521207577284,
+        24.367217964200133,
+        0.7528211254384737
+      ],
+      "primary_reference_point": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "outside_reference_rule": "If either compared predicted front has a normalised coordinate >=2.0, expand the affected common coordinate to max(2.0,1.05*maximum_union_coordinate+0.01) and log the fallback."
+    },
+    "conditions": {
+      "each_target_STOP_NRMSE_change_abs_pp": "<0.5",
+      "STOP_mean_absolute_paired_MAE_relative_change_pct": "<3",
+      "fixed_reference_hypervolume_absolute_relative_change_pct": "<1",
+      "no_STOP_target_NRMSE_deterioration_pp": "no target may worsen by >0.2 percentage point in either of the two qualifying rounds",
+      "mean_symmetric_nearest_front_distance": "<0.01",
+      "TOPSIS_and_VIKOR_top10_overlap_pct": ">=80",
+      "each_selected_objective_vector_normalised_movement": "<0.02",
+      "legacy_holdout_guardrail": "no target worsens >10% relative OR >0.5 percentage point; apply stricter bound",
+      "latest_gproms_batch_convergence_pct": ">=90"
+    },
+    "numeric_conditions": {
+      "nrmse_abs_change_pp_lt": 0.5,
+      "mean_absolute_paired_mae_change_pct_lt": 3.0,
+      "hypervolume_relative_change_pct_lt": 1.0,
+      "nrmse_deterioration_pp_max": 0.2,
+      "mean_symmetric_front_distance_lt": 0.01,
+      "top10_overlap_pct_min": 80.0,
+      "selected_objective_movement_lt": 0.02,
+      "legacy_relative_worsening_pct_max": 10.0,
+      "legacy_absolute_worsening_pp_max": 0.5,
+      "latest_batch_convergence_pct_min": 90.0
+    },
+    "success_floor": "Plateau is not success unless every target post-freeze-confirmation local-range NRMSE is <=5%; before lockbox opening use STOP only as a development estimate."
+  },
+  "model_variants": {
+    "required": [
+      "V29 frozen baseline",
+      "V29 learner protocol pooled with provenance-approved existing60",
+      "pooled update with all converged AL development labels",
+      "V29 frozen global predictor plus gated local residual correction"
+    ],
+    "gated_local_residual": {
+      "base_predictor": "frozen V29 ensemble",
+      "residual_features": "8 frozen-minmax inputs plus 3 V29 predicted targets",
+      "residual_model": "ExtraTreesRegressor(n_estimators=500,min_samples_leaf=3,max_features=1.0,bootstrap=True,random_state=42+round,n_jobs=-1)",
+      "gate": "g(x)=exp(-(d_knn(x)/tau)^2), with d_knn the 5-NN mean distance to local labelled development in frozen 8D input space",
+      "tau_grid": [
+        0.08,
+        0.12,
+        0.18,
+        0.25,
+        0.35
+      ],
+      "tau_selection": "source/cluster-grouped development CV, then STOP_30; subject to legacy global guardrail; ties choose smaller tau",
+      "prediction": "f_final=f_V29+g*h; clip only to predeclared physical target support"
+    },
+    "selection_order": "lowest mean fixed-range RMSE across three STOP targets subject to all global guardrails; ties within 1% choose the simpler/frozen-global variant"
+  },
+  "conformal": {
+    "method": "5-fold source/cluster-grouped cross-conformal scaled by ensemble SD on permitted development only",
+    "nominal_coverage": 0.95,
+    "STOP_30_use": "forbidden for final interval calibration",
+    "evaluation": "empirical coverage and width on fixed-region60, global40 and post-freeze confirmation96; report exact binomial CI"
+  },
+  "postfreeze_confirmation96": {
+    "timing": "after final model/archive/MCDM/analysis freeze and before any confirmation label",
+    "quotas": {
+      "updated_front_coverage": 40,
+      "near_front_challengers": 24,
+      "preference_neighbourhood": 20,
+      "boundary_or_low_AD": 12
+    },
+    "eligibility": "all 96 metric rows must be previously unlabelled and hash-disjoint from legacy3000, existing60, STOP, fixed-region60, global40 and every AL round",
+    "forced_members": "Use TOPSIS, VIKOR, Max CU, Min SEC and Min CAPEX as metric rows only when previously unlabelled. A previously labelled anchor is reported separately and its metric slot is replaced by a new unlabelled nearest-front design.",
+    "rank_universe": "all converged confirmation96 candidate IDs, including dominated rows, using equal 1/3 weights and VIKOR v=0.5; actual nondominated status is a separate metric",
+    "top10_overlap_universe": "the same all-converged confirmation96 IDs, predicted versus actual ranking; failed rows remain reported and are not silently removed",
+    "dominance_pairs": "for each of 24 challengers, pair to its nearest selected V30-front point in frozen normalised objective space and materialise the pair before labels",
+    "hypervolume": {
+      "orientation": "minimise [-CU, SEC, CAPEX]",
+      "normalisation": "frozen V30 predicted-front ideal/nadir, materialised before labels",
+      "primary_reference_point": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "outside_reference_rule": "Never clip. If any predicted or actual normalised coordinate is >=2.0, replace each affected common reference coordinate by max(2.0,1.05*maximum_union_coordinate+0.01), apply the same expanded point to both predicted and actual sets, and explicitly report that the predeclared fallback was triggered.",
+      "comparison": "predicted versus actual nondominated subsets of the same issued confirmation96 candidate universe"
+    }
+  }
+}

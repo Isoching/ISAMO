@@ -1,0 +1,85 @@
+{
+  "schema_version": "V30-final-analysis-freeze-1.0.0",
+  "generated_at_utc": "2026-08-26T03:57:53.202693+00:00",
+  "status": "ANALYSIS_FROZEN_BEFORE_CONFIRMATION96_LABEL_OPENING",
+  "development_stopping_decision": "BUDGET_EXHAUSTED_NO_PLATEAU",
+  "optimizer": {
+    "algorithm": "NSGA-III",
+    "seeds": [
+      42,
+      137,
+      271,
+      419,
+      613,
+      809,
+      1009,
+      1217,
+      1429,
+      1693
+    ],
+    "population_size": 256,
+    "generations": 300,
+    "reference_partitions": 20,
+    "crossover_probability": 0.9,
+    "mutation_probability": 0.2,
+    "mutation_scale": 0.08,
+    "integer_variables_rounded_before_every_prediction": [
+      "N_WE",
+      "N_eCO2R"
+    ],
+    "objectives": {
+      "maximize": [
+        "carbon_utilization"
+      ],
+      "minimize": [
+        "specific_energy_kwh_per_kg_meoh",
+        "capex_proxy"
+      ]
+    }
+  },
+  "run_count": 10,
+  "all_runs_complete": true,
+  "cross_seed_nondominated_union_rows": 6184,
+  "combined_candidate_rows": 82652,
+  "combined_front_rows": 6221,
+  "labelled_diversity_rows": 186,
+  "mcdm": {
+    "weights": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "vikor_v": 0.5
+  },
+  "model_load_audit": {
+    "warning_count": 56147,
+    "warning_messages": [
+      "Setting the shape on a NumPy array has been deprecated in NumPy 2.5.\nAs an alternative, you can create a new view using np.reshape (with copy=False if needed)."
+    ],
+    "classification": "KNOWN_JOBLIB_NUMPY_2_5_SHAPE_DEPRECATION_ONLY",
+    "prediction_warnings_permitted": false
+  },
+  "five_anchor_cases": [
+    "TOPSIS",
+    "VIKOR",
+    "Max CU",
+    "Min SEC",
+    "Min CAPEX"
+  ],
+  "final_model_freeze_binding_sha256": "8a24b6f8c45ca0f56fa1d6a33407bec30030157d1f83590212a4b20d114405d6",
+  "cross_conformal_binding_sha256": "0ac0aeb2b2fd7c1f40fc6dbcadf9f5809e28b5ca64cb304ffa09d9ef37846d61",
+  "artifacts": {
+    "final_model_freeze": "7a0c9e9bf2613e396dc2d7341a72e75268a97e8775f6d2c433f80e9e20a99884",
+    "cross_conformal_freeze": "125d955f8a0bfe00877f9075d6c8cb6a20630ec4f73b21b7803503ce3b55d437",
+    "run_summary": "817b1ea2b67df905717b08a7aa79c69e682a01bd9539996cd6d9679c8eebb268",
+    "pairwise_front_distances": "5d2c4ba606fe30332e49cd852d7877a18a2326a25a18ea914dfbd709f8d3bae6",
+    "cross_seed_nondominated_union": "0b7b13296bfb9c7c5599e69dca93478d30c2c68ea7f42532ad846489863724d7",
+    "combined_candidate_scored": "ca4a9685f46c21c180e1d3026f50bbe07387bf3d9a01166f04c0e48cf19c38d6",
+    "combined_predicted_front": "fdfb252396f794b0a3975b1995ed4c5f5092ee4c2e592393bb30278d0435ee2d",
+    "five_decision_anchors": "4c0e03eb5b192498719ba9788a7b9cc1d2c6a4c9ac2596d060af5986d791d15e",
+    "final_labelled_for_diversity": "04c37007ff2eaa0a3c5356bdfd40d8f3f56f3a0e9734d88b75c800f3f867ed04",
+    "protocol_config": "8e04f94aa0065b84ed249dead75feb27393fda988b6aa46eaf89a8d4612f74a0",
+    "analysis_code": "4e8ef7e1b6017074ad5deb6bd5ca9e273dec428c8f3aaadc3607a7d5b065e1c8"
+  },
+  "analysis_freeze_binding_sha256": "251b1227563d45463ebe75074484d5d7773850361055624101cf8615cb01c27b"
+}

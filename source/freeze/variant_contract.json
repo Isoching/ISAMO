@@ -1,0 +1,147 @@
+{
+  "schema_version": "V30-pooled-V29-learner-variant-1.0.0",
+  "generated_at_utc": "2026-08-26T02:37:27.567114+00:00",
+  "started_at_utc": "2026-08-26T01:52:22.132419+00:00",
+  "variant_id": "pooled_all_al",
+  "variant_description": "pooled update with all converged AL development labels",
+  "installed_isamo_version": "V29_FINAL",
+  "installed_model_version": "V29_FINAL",
+  "learner_protocol": "installed V29 train_surrogates(default_config), including candidate calibration, five-member weighted heterogeneous ensemble and CU residual correction",
+  "config": {
+    "variables": [
+      {
+        "name": "P_Cap",
+        "unit": "bar",
+        "lower": 3.000732422,
+        "upper": 5.998535156
+      },
+      {
+        "name": "J_eCO2R",
+        "unit": "A/cm2",
+        "lower": 0.200292969,
+        "upper": 0.799853516
+      },
+      {
+        "name": "T_eCO2R",
+        "unit": "K",
+        "lower": 323.1597656,
+        "upper": 363.1304688
+      },
+      {
+        "name": "N_eCO2R",
+        "unit": "count",
+        "lower": 321.0,
+        "upper": 1280.0
+      },
+      {
+        "name": "P_WE",
+        "unit": "MW",
+        "lower": 1.001953125,
+        "upper": 4.999023438
+      },
+      {
+        "name": "N_WE",
+        "unit": "count",
+        "lower": 100.0,
+        "upper": 400.0
+      },
+      {
+        "name": "P_MeOH",
+        "unit": "bar",
+        "lower": 40.01464844,
+        "upper": 69.99267578
+      },
+      {
+        "name": "T_utility",
+        "unit": "K",
+        "lower": 493.1695313,
+        "upper": 533.1402344
+      }
+    ],
+    "data": {
+      "target_converged_samples": 3000,
+      "raw_sobol_samples": 3000,
+      "initial_sobol_target": 3000,
+      "active_learning_rounds": 4,
+      "active_learning_batch_size": 384,
+      "boundary_seed_pool_size": 160,
+      "boundary_margin_quantile": 0.35,
+      "boundary_perturb_scale": 0.06,
+      "pareto_neighbour_rounds": 0,
+      "pareto_neighbour_batch_size": 220,
+      "pareto_neighbour_perturb_scale": 0.035,
+      "max_train_pool_size": 3000,
+      "pareto_validation_sample_size": 0,
+      "train_fraction": 0.8,
+      "seed": 42
+    },
+    "surrogate": {
+      "prefer_xgboost": true,
+      "random_state": 42,
+      "k_folds": 3,
+      "max_iter": 1200,
+      "learning_rate": 0.05,
+      "max_depth": 5,
+      "min_samples_leaf": 10,
+      "xgb_n_estimators": 1800,
+      "xgb_subsample": 0.9,
+      "xgb_colsample_bytree": 0.9,
+      "xgb_reg_lambda": 1.0,
+      "xgb_early_stopping_rounds": 60,
+      "xgb_n_jobs": 4,
+      "ensemble_size": 5,
+      "ensemble_bootstrap_fraction": 0.85
+    },
+    "explain": {
+      "eval_samples": 24,
+      "background_samples": 64,
+      "n_permutations": 64,
+      "random_state": 42
+    },
+    "optimizer": {
+      "pop_size": 256,
+      "n_generations": 300,
+      "al_pop_size": 48,
+      "al_generations": 12,
+      "n_reference_partitions": 20,
+      "crossover_prob": 0.9,
+      "mutation_prob": 0.2,
+      "mutation_scale": 0.08,
+      "uncertainty_penalty_lambda": 0.0,
+      "feasibility_prob_threshold": 0.55,
+      "feasibility_penalty_scale": 1.5,
+      "random_state": 42
+    },
+    "decision": {
+      "weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "disagreement_quantile": 0.1
+    }
+  },
+  "training_rows": 2586,
+  "training_hash_set_sha256": "f26159d26a06ddb81c4b41986af9b9e884a32e894e10e4c14edbd9d5cd6a6252",
+  "legacy_rows": 2400,
+  "existing60_rows": 60,
+  "al_rows": 126,
+  "models": {
+    "carbon_utilization": {
+      "path": "outputs/V30_publication_validation_execution/phase3_final_model/pooled_all_al/models/carbon_utilization.joblib",
+      "bytes": 578876359,
+      "sha256": "59d21a0dd5c5e367aa8d911941eb10be65c45537849933fbf9f2abb359a311fe"
+    },
+    "specific_energy_kwh_per_kg_meoh": {
+      "path": "outputs/V30_publication_validation_execution/phase3_final_model/pooled_all_al/models/specific_energy_kwh_per_kg_meoh.joblib",
+      "bytes": 422210759,
+      "sha256": "b34498ab163a4943d2619b0988f4cbf2942322080bf324ff6ee792bfad0b91e3"
+    },
+    "capex_proxy": {
+      "path": "outputs/V30_publication_validation_execution/phase3_final_model/pooled_all_al/models/capex_proxy.joblib",
+      "bytes": 118633108,
+      "sha256": "9864b5b40aea31a82114fb8bc6e77efe4cb6bc85481a4212c602671da88e2cbc"
+    }
+  },
+  "model_set_binding_sha256": "d32e958a8267b1f4f0359ee88cca987d095affd66c64829c125031a62314df78"
+}

@@ -1,0 +1,6 @@
+claim,supported,evidence
+The final V30 surrogate meets the pre-registered confirmation96 point-accuracy floor,False,confirmation96; all converged rows; no outlier deletion
+The post-freeze confirmation supports the updated TOPSIS and VIKOR compromise recommendations,False,"forced anchors, actual nondominance and actual rank gate"
+The V30 Pareto front is globally validated by gPROMS,False,Forbidden claim; sparse sampled confirmation and global40 convergence failure
+The global40 lockbox passed,False,12/40 converged (30%); required >=90%
+A prospectively gPROMS-confirmed surrogate-assisted Pareto-local design region is supported,False,confirmation96 point accuracy and sampled-front fidelity; see failed gates for qualifications

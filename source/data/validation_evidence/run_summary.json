@@ -1,0 +1,627 @@
+{
+  "schema_version": "V30-postfreeze-scientific-evaluation-1.0.0",
+  "generated_at_utc": "2026-08-26T18:29:11.852711+00:00",
+  "overall_status": "FAIL_ONE_OR_MORE_PREREGISTERED_GATES",
+  "failed_preregistered_gates": [
+    "confirmation_local_range_nrmse_le_5_pct_all_targets",
+    "front_membership_jaccard_ge_0_75",
+    "dominance_pair_accuracy_ge_90_pct_all_issued",
+    "updated_topsis_vikor_anchor_gate",
+    "tested_candidate_top10_overlap_ge_70_pct_both",
+    "global40_convergence_ge_90_pct",
+    "global40_full_lockbox_degradation_gate_assessable_and_pass",
+    "method_contribution_vs_strongest_competitor_gate"
+  ],
+  "development_stopping_decision": "BUDGET_EXHAUSTED_NO_PLATEAU",
+  "selected_final_variant": "pooled_all_al",
+  "lockboxes": {
+    "fixed60": {
+      "result_path": "outputs/V30_publication_validation_execution/phase4_fixed60_finalized/fixed_region60_execution_result.json",
+      "result_sha256": "5bee7b7cc336369cbf2d1cad13e6ae9287f40a4b2367f7ff26e46b4f994c187a",
+      "status": "PASS_QC_ASSEMBLED",
+      "issued_records": 60,
+      "accepted_labels": 60,
+      "failed_records": 0,
+      "convergence_pct": 100.0,
+      "accepted_csv": "outputs/V30_publication_validation_execution/phase4_fixed60_finalized/gproms_return_rebuilt_qc.csv",
+      "accepted_csv_sha256": "be1fa3803c4a2e3dff969faf50196dad41bd58a62fa7c1e4fb4091766118db82"
+    },
+    "global40": {
+      "result_path": "outputs/V30_publication_validation_execution/phase4_global40_finalized/global40_execution_result.json",
+      "result_sha256": "f5fa7a926b48291c9891cd24a8fd8b416fd4580d925d9b8e4adfc3cb3b0434b5",
+      "status": "FAIL_LOW_CONVERGENCE",
+      "issued_records": 40,
+      "accepted_labels": 12,
+      "failed_records": 28,
+      "convergence_pct": 30.0,
+      "accepted_csv": "outputs/V30_publication_validation_execution/phase4_global40_finalized/gproms_return_rebuilt_qc.csv",
+      "accepted_csv_sha256": "5f4c34754ceb6c571233d33dbc439abbb1aadac74332e85ce5440a39570bec63"
+    },
+    "confirmation96": {
+      "result_path": "outputs/V30_publication_validation_execution/phase4_confirmation96_finalized/confirmation96_execution_result.json",
+      "result_sha256": "de401d634b54a060d2fc49cc7f477a279d7dfded8cc52a7936105f1101235de1",
+      "status": "PASS_QC_ASSEMBLED",
+      "issued_records": 96,
+      "accepted_labels": 94,
+      "failed_records": 2,
+      "convergence_pct": 97.91666666666667,
+      "accepted_csv": "outputs/V30_publication_validation_execution/phase4_confirmation96_finalized/gproms_return_rebuilt_qc.csv",
+      "accepted_csv_sha256": "41e1aaf762628c15d74026288aa597a8728d83bf18ea26901f33d0394d07c2d8"
+    }
+  },
+  "confirmation96_primary_metrics": [
+    {
+      "target": "carbon_utilization",
+      "dataset": "confirmation96",
+      "stratum": "ALL",
+      "analysis_scope": "FORMAL_INDEPENDENT_LOCKBOX",
+      "variant": "pooled_all_al",
+      "n": 94,
+      "rmse": 0.016559634892498815,
+      "mae": 0.013717041862750277,
+      "local_observed_range": 0.6220577467886185,
+      "nrmse_local_range_pct": 2.6620735740352326,
+      "frozen_legacy_holdout_range": 0.41517615016949144,
+      "nrmse_fixed_range_pct": 3.9885804822214643,
+      "r2": 0.993761909526357,
+      "spearman_rho": 0.9929198425026189,
+      "bias_pred_minus_gproms": -0.005393121525424658,
+      "absolute_bias_pct_fixed_range": 1.29899598597438,
+      "p90_absolute_error": 0.025788217285798328,
+      "p90_absolute_error_pct_fixed_range": 6.211391785214674,
+      "bootstrap_replicates": 5000,
+      "rmse_ci95_low": 0.014744342408361555,
+      "rmse_ci95_high": 0.018303835623049092,
+      "mae_ci95_low": 0.011885665272434367,
+      "mae_ci95_high": 0.015527508151984738,
+      "fixed_range_nrmse_pct_ci95_low": 3.5513461942219773,
+      "fixed_range_nrmse_pct_ci95_high": 4.408691495303075
+    },
+    {
+      "target": "specific_energy_kwh_per_kg_meoh",
+      "dataset": "confirmation96",
+      "stratum": "ALL",
+      "analysis_scope": "FORMAL_INDEPENDENT_LOCKBOX",
+      "variant": "pooled_all_al",
+      "n": 94,
+      "rmse": 0.7385412758821414,
+      "mae": 0.532553733137103,
+      "local_observed_range": 15.908579241239373,
+      "nrmse_local_range_pct": 4.64240875745611,
+      "frozen_legacy_holdout_range": 40.705064076566494,
+      "nrmse_fixed_range_pct": 1.8143719771400935,
+      "r2": 0.9801070596223236,
+      "spearman_rho": 0.9795975869667305,
+      "bias_pred_minus_gproms": 0.3671742791561423,
+      "absolute_bias_pct_fixed_range": 0.9020358706854879,
+      "p90_absolute_error": 1.271758053527195,
+      "p90_absolute_error_pct_fixed_range": 3.12432391983221,
+      "bootstrap_replicates": 5000,
+      "rmse_ci95_low": 0.6118318381164982,
+      "rmse_ci95_high": 0.8619425606987151,
+      "mae_ci95_low": 0.43394323169866944,
+      "mae_ci95_high": 0.6376562653935162,
+      "fixed_range_nrmse_pct_ci95_low": 1.5030853089080967,
+      "fixed_range_nrmse_pct_ci95_high": 2.117531516661896
+    },
+    {
+      "target": "capex_proxy",
+      "dataset": "confirmation96",
+      "stratum": "ALL",
+      "analysis_scope": "FORMAL_INDEPENDENT_LOCKBOX",
+      "variant": "pooled_all_al",
+      "n": 94,
+      "rmse": 0.013833637421631888,
+      "mae": 0.013049278957786167,
+      "local_observed_range": 0.182068862878759,
+      "nrmse_local_range_pct": 7.598024836813425,
+      "frozen_legacy_holdout_range": 0.90830312269841,
+      "nrmse_fixed_range_pct": 1.5230199121780588,
+      "r2": 0.850600777353005,
+      "spearman_rho": 0.9710002528627677,
+      "bias_pred_minus_gproms": -0.0129415376980498,
+      "absolute_bias_pct_fixed_range": 1.4248038319633594,
+      "p90_absolute_error": 0.019497282507767322,
+      "p90_absolute_error_pct_fixed_range": 2.14656121073814,
+      "bootstrap_replicates": 5000,
+      "rmse_ci95_low": 0.012935723162216254,
+      "rmse_ci95_high": 0.01470695735783025,
+      "mae_ci95_low": 0.012138641425732956,
+      "mae_ci95_high": 0.013988680506979712,
+      "fixed_range_nrmse_pct_ci95_low": 1.4241636782868785,
+      "fixed_range_nrmse_pct_ci95_high": 1.6191684240981632
+    }
+  ],
+  "fixed60_selected_model_metrics": [
+    {
+      "target": "carbon_utilization",
+      "dataset": "fixed60",
+      "stratum": "ALL",
+      "analysis_scope": "FORMAL_INDEPENDENT_LOCKBOX",
+      "variant": "pooled_all_al",
+      "n": 60,
+      "rmse": 0.010316201731392109,
+      "mae": 0.006631805073931542,
+      "local_observed_range": 0.42788833921287495,
+      "nrmse_local_range_pct": 2.4109565010276635,
+      "frozen_legacy_holdout_range": 0.41517615016949144,
+      "nrmse_fixed_range_pct": 2.4847770584077686,
+      "r2": 0.9918612959305413,
+      "spearman_rho": 0.9852181161433734,
+      "bias_pred_minus_gproms": 0.001105820935604702,
+      "absolute_bias_pct_fixed_range": 0.26634982167286386,
+      "p90_absolute_error": 0.013129925287117237,
+      "p90_absolute_error_pct_fixed_range": 3.16249507149124,
+      "bootstrap_replicates": 5000,
+      "rmse_ci95_low": 0.007041766719460917,
+      "rmse_ci95_high": 0.0133629095465834,
+      "mae_ci95_low": 0.0047806302893782385,
+      "mae_ci95_high": 0.008825245855283693,
+      "fixed_range_nrmse_pct_ci95_low": 1.6960913377577655,
+      "fixed_range_nrmse_pct_ci95_high": 3.2186120375961207
+    },
+    {
+      "target": "specific_energy_kwh_per_kg_meoh",
+      "dataset": "fixed60",
+      "stratum": "ALL",
+      "analysis_scope": "FORMAL_INDEPENDENT_LOCKBOX",
+      "variant": "pooled_all_al",
+      "n": 60,
+      "rmse": 0.21085450210378184,
+      "mae": 0.15764561764267349,
+      "local_observed_range": 8.076039655708794,
+      "nrmse_local_range_pct": 2.6108651157344545,
+      "frozen_legacy_holdout_range": 40.705064076566494,
+      "nrmse_fixed_range_pct": 0.5180055771615127,
+      "r2": 0.9865131493954071,
+      "spearman_rho": 0.9527646568491248,
+      "bias_pred_minus_gproms": -0.01098974437850752,
+      "absolute_bias_pct_fixed_range": 0.026998469669119642,
+      "p90_absolute_error": 0.29743929471923514,
+      "p90_absolute_error_pct_fixed_range": 0.7307181587031772,
+      "bootstrap_replicates": 5000,
+      "rmse_ci95_low": 0.16045407827530644,
+      "rmse_ci95_high": 0.2600564052965254,
+      "mae_ci95_low": 0.12452076497539749,
+      "mae_ci95_high": 0.19589840530999464,
+      "fixed_range_nrmse_pct_ci95_low": 0.39418701804151757,
+      "fixed_range_nrmse_pct_ci95_high": 0.6388797344904251
+    },
+    {
+      "target": "capex_proxy",
+      "dataset": "fixed60",
+      "stratum": "ALL",
+      "analysis_scope": "FORMAL_INDEPENDENT_LOCKBOX",
+      "variant": "pooled_all_al",
+      "n": 60,
+      "rmse": 0.011571450327112572,
+      "mae": 0.010954345542622779,
+      "local_observed_range": 0.2044375290290597,
+      "nrmse_local_range_pct": 5.660139986072592,
+      "frozen_legacy_holdout_range": 0.90830312269841,
+      "nrmse_fixed_range_pct": 1.2739635082103222,
+      "r2": 0.9308343134509425,
+      "spearman_rho": 0.9912753542650738,
+      "bias_pred_minus_gproms": -0.010954345542622779,
+      "absolute_bias_pct_fixed_range": 1.206023107140635,
+      "p90_absolute_error": 0.01590436105710817,
+      "p90_absolute_error_pct_fixed_range": 1.750997069112687,
+      "bootstrap_replicates": 5000,
+      "rmse_ci95_low": 0.01058796146632763,
+      "rmse_ci95_high": 0.012589762372915455,
+      "mae_ci95_low": 0.010037949475720046,
+      "mae_ci95_high": 0.011904374451557585,
+      "fixed_range_nrmse_pct_ci95_low": 1.1656859039383949,
+      "fixed_range_nrmse_pct_ci95_high": 1.3860749851341994
+    }
+  ],
+  "fixed60_v29_to_v30_improvement": [
+    {
+      "target": "carbon_utilization",
+      "v29_baseline_rmse": 0.07813495401250918,
+      "selected_v30_rmse": 0.010316201731392109,
+      "rmse_reduction_pct": 86.79694400314037
+    },
+    {
+      "target": "specific_energy_kwh_per_kg_meoh",
+      "v29_baseline_rmse": 0.757227570745564,
+      "selected_v30_rmse": 0.21085450210378184,
+      "rmse_reduction_pct": 72.15440770385906
+    },
+    {
+      "target": "capex_proxy",
+      "v29_baseline_rmse": 0.04583370079568093,
+      "selected_v30_rmse": 0.011571450327112572,
+      "rmse_reduction_pct": 74.75340169737507
+    }
+  ],
+  "confirmation96_method_contribution": [
+    {
+      "target": "carbon_utilization",
+      "selected_variant": "pooled_all_al",
+      "selected_rmse": 0.016559634892498815,
+      "strongest_competing_variant": "pooled_existing60",
+      "strongest_competing_rmse": 0.028779379691538945,
+      "rmse_reduction_vs_strongest_competitor_pct": 42.46007012664245,
+      "pooled_existing60_rmse": 0.028779379691538945,
+      "rmse_reduction_vs_pooled_existing60_pct": 42.46007012664245
+    },
+    {
+      "target": "specific_energy_kwh_per_kg_meoh",
+      "selected_variant": "pooled_all_al",
+      "selected_rmse": 0.7385412758821414,
+      "strongest_competing_variant": "pooled_existing60",
+      "strongest_competing_rmse": 0.8072688307912553,
+      "rmse_reduction_vs_strongest_competitor_pct": 8.513589561205992,
+      "pooled_existing60_rmse": 0.8072688307912553,
+      "rmse_reduction_vs_pooled_existing60_pct": 8.513589561205992
+    },
+    {
+      "target": "capex_proxy",
+      "selected_variant": "pooled_all_al",
+      "selected_rmse": 0.013833637421631888,
+      "strongest_competing_variant": "pooled_existing60",
+      "strongest_competing_rmse": 0.015580060837901581,
+      "rmse_reduction_vs_strongest_competitor_pct": 11.20934914465271,
+      "pooled_existing60_rmse": 0.015580060837901581,
+      "rmse_reduction_vs_pooled_existing60_pct": 11.20934914465271
+    }
+  ],
+  "method_contribution_gate_pass": false,
+  "global40_interpretation": "FAIL_LOW_CONVERGENCE; metrics on 12 converged rows are descriptive only and cannot satisfy the global lockbox gate",
+  "global40_converged_subset_comparison": [
+    {
+      "target": "carbon_utilization",
+      "converged_subset_n": 12,
+      "v29_baseline_rmse": 0.005519611266405703,
+      "selected_v30_rmse": 0.009634470538458124,
+      "selected_v30_relative_change_vs_v29_pct": 74.54980203219932,
+      "formal_gate_assessable": false,
+      "interpretation": "DESCRIPTIVE_CONVERGED_SUBSET_ONLY; 12/40 converged"
+    },
+    {
+      "target": "specific_energy_kwh_per_kg_meoh",
+      "converged_subset_n": 12,
+      "v29_baseline_rmse": 0.7235327619646208,
+      "selected_v30_rmse": 0.7635611868543413,
+      "selected_v30_relative_change_vs_v29_pct": 5.53235831105016,
+      "formal_gate_assessable": false,
+      "interpretation": "DESCRIPTIVE_CONVERGED_SUBSET_ONLY; 12/40 converged"
+    },
+    {
+      "target": "capex_proxy",
+      "converged_subset_n": 12,
+      "v29_baseline_rmse": 0.0067630767569896244,
+      "selected_v30_rmse": 0.00803277143689191,
+      "selected_v30_relative_change_vs_v29_pct": 18.773920887265696,
+      "formal_gate_assessable": false,
+      "interpretation": "DESCRIPTIVE_CONVERGED_SUBSET_ONLY; 12/40 converged"
+    }
+  ],
+  "front_fidelity": {
+    "confirmation_converged_n": 94,
+    "predicted_nondominated_n": 51,
+    "actual_nondominated_n": 40,
+    "intersection_n": 30,
+    "union_n": 61,
+    "nondominated_membership_jaccard": 0.4918032786885246,
+    "jaccard_ge_0_75": false,
+    "jaccard_ge_0_80_preferred": false,
+    "issued_dominance_pairs": 24,
+    "evaluable_dominance_pairs": 23,
+    "unevaluable_dominance_pairs": 1,
+    "dominance_pair_correct_n": 10,
+    "dominance_pair_accuracy_pct_evaluable": 43.47826086956522,
+    "dominance_pair_accuracy_pct_issued_conservative": 41.666666666666664,
+    "dominance_pair_accuracy_ge_90_pct": false,
+    "normalisation_ideal": [
+      -0.8861016248673148,
+      16.117739171499107,
+      0.43443277783099127
+    ],
+    "normalisation_nadir": [
+      -0.2618749006742183,
+      30.815316300146943,
+      0.7137954893123648
+    ],
+    "primary_reference": [
+      2.0,
+      2.0,
+      2.0
+    ],
+    "common_reference_used": [
+      2.0,
+      2.0,
+      2.0
+    ],
+    "outside_reference_fallback_triggered": false,
+    "outside_reference_fallback_axes": [],
+    "predicted_hypervolume": 7.519510114480145,
+    "actual_hypervolume": 7.355283873343537,
+    "hypervolume_retention_pct": 97.81599813503328,
+    "hypervolume_relative_error_pct": 2.1840018649667234,
+    "hypervolume_relative_error_le_5_pct": true
+  },
+  "decision_fidelity": {
+    "rank_universe_converged_n": 94,
+    "failed_issued_rows_excluded_but_reported_n": 2,
+    "topsis_rank_spearman": 0.9871979193006539,
+    "vikor_rank_spearman": 0.9842502618935809,
+    "topsis_top10_overlap_n": 6,
+    "topsis_top10_overlap_pct": 60.0,
+    "vikor_top10_overlap_n": 6,
+    "vikor_top10_overlap_pct": 60.0,
+    "rank_spearman_ge_0_90_both": true,
+    "top10_overlap_ge_70_pct_both": false
+  },
+  "five_anchor_gate_pass": false,
+  "primary_gates": {
+    "confirmation_convergence_ge_95_pct": true,
+    "all_five_forced_anchors_converged": true,
+    "confirmation_local_range_nrmse_le_5_pct_all_targets": false,
+    "confirmation_fixed_range_nrmse_le_5_pct_all_targets": true,
+    "confirmation_spearman_ge_0_90_all_targets": true,
+    "confirmation_absolute_bias_le_2_pct_fixed_range_all_targets": true,
+    "confirmation_p90_abs_error_le_10_pct_fixed_range_all_targets": true,
+    "confirmation_p90_abs_error_le_10_pct_fixed_range_all_strata": true,
+    "confirmation_conformal_coverage_ge_90_pct_all_targets": true,
+    "fixed60_conformal_coverage_ge_90_pct_all_targets": true,
+    "front_membership_jaccard_ge_0_75": false,
+    "dominance_pair_accuracy_ge_90_pct_all_issued": false,
+    "hypervolume_relative_error_le_5_pct": true,
+    "updated_topsis_vikor_anchor_gate": false,
+    "tested_candidate_rank_spearman_ge_0_90_both": true,
+    "tested_candidate_top10_overlap_ge_70_pct_both": false,
+    "global40_convergence_ge_90_pct": false,
+    "global40_full_lockbox_degradation_gate_assessable_and_pass": false,
+    "method_contribution_vs_strongest_competitor_gate": false
+  },
+  "model_prediction_audit": {
+    "v29_portable_recovery": {
+      "mode": "XGBOOST_3_3_0_EXACT_STABLE_MODEL_SLICE_RECOVERY",
+      "booster_counts": {
+        "carbon_utilization": 3,
+        "specific_energy_kwh_per_kg_meoh": 2,
+        "capex_proxy": 4
+      },
+      "boosters": [
+        {
+          "snapshot_bytes": 2979769,
+          "snapshot_sha256": "ba9a9f8a3828bdc22bf6c646fffe7472dc1ace1ac501c7419cf3b664f800cbd8",
+          "config_bytes": 9355,
+          "config_sha256": "bbbd3cda779384e3db1a4ba253dbbf3d37e61b9bc3ca1a3bc7922c1213686f21",
+          "config_version": [
+            3,
+            3,
+            0
+          ],
+          "model_bytes": 2970383,
+          "model_sha256": "a7b0a318617c8f91a03fb5f254a4807643959195131ccd71a9aa1385d4fc23d6",
+          "model_version": [
+            3,
+            3,
+            0
+          ],
+          "extraction": "EXACT_RAW_UBJSON_MODEL_VALUE_SLICE_NO_REENCODING",
+          "scope": "INFERENCE_ONLY_TRAINING_RNG_STATE_NOT_RESTORED",
+          "target": "carbon_utilization",
+          "target_booster_index": 1
+        },
+        {
+          "snapshot_bytes": 3627875,
+          "snapshot_sha256": "8bd1ed25d2735b62f527c6fd6e47d92be7b77055baff9e7ed78785868ee86de8",
+          "config_bytes": 9329,
+          "config_sha256": "097a280433c4064b0f621dbc72d22ee07fb6a7bc0a6cffe0d1f82ea6d124f9ca",
+          "config_version": [
+            3,
+            3,
+            0
+          ],
+          "model_bytes": 3618515,
+          "model_sha256": "2b895c7b4c11e3914648cbc642cc34547f323acfcb7dd99ca123787eea5367fe",
+          "model_version": [
+            3,
+            3,
+            0
+          ],
+          "extraction": "EXACT_RAW_UBJSON_MODEL_VALUE_SLICE_NO_REENCODING",
+          "scope": "INFERENCE_ONLY_TRAINING_RNG_STATE_NOT_RESTORED",
+          "target": "carbon_utilization",
+          "target_booster_index": 2
+        },
+        {
+          "snapshot_bytes": 3634083,
+          "snapshot_sha256": "64fc842883ae80b2f69b80b645181d6b69392f87e3ad557cb0213e073ac8c8f6",
+          "config_bytes": 9349,
+          "config_sha256": "2d929ccea03b2e53ac467f6be3930e40b7eeb023367c0e9f6c7c9cdcc7df31c3",
+          "config_version": [
+            3,
+            3,
+            0
+          ],
+          "model_bytes": 3624703,
+          "model_sha256": "856840e0acbf1bb26152cd4d28b5cb1093d38dca7da5649ff67a33fe7bcf85cf",
+          "model_version": [
+            3,
+            3,
+            0
+          ],
+          "extraction": "EXACT_RAW_UBJSON_MODEL_VALUE_SLICE_NO_REENCODING",
+          "scope": "INFERENCE_ONLY_TRAINING_RNG_STATE_NOT_RESTORED",
+          "target": "carbon_utilization",
+          "target_booster_index": 3
+        },
+        {
+          "snapshot_bytes": 3015331,
+          "snapshot_sha256": "c356a79f577974f8319284a858b66188991dc4b3b93ca70ee3bef3615b804add",
+          "config_bytes": 9354,
+          "config_sha256": "f96b5fe937336441da92bd7e2fb590c5dad9ac9e951a2101e6004be773ebbb5b",
+          "config_version": [
+            3,
+            3,
+            0
+          ],
+          "model_bytes": 3005946,
+          "model_sha256": "484d3eef2aa41d08e74e5177525a1fdd78eb6bbc5662ae631e1072cccaaa8d52",
+          "model_version": [
+            3,
+            3,
+            0
+          ],
+          "extraction": "EXACT_RAW_UBJSON_MODEL_VALUE_SLICE_NO_REENCODING",
+          "scope": "INFERENCE_ONLY_TRAINING_RNG_STATE_NOT_RESTORED",
+          "target": "specific_energy_kwh_per_kg_meoh",
+          "target_booster_index": 1
+        },
+        {
+          "snapshot_bytes": 3696757,
+          "snapshot_sha256": "7d10e0ddf33f9e653974bef3f31c56955104793cf251105219be6d0ec7bc5cb1",
+          "config_bytes": 9328,
+          "config_sha256": "0f1a401bb6cb3fa5c40a762b25ebe68cd0a77ef6e5daa2afc45e059c51aac2f1",
+          "config_version": [
+            3,
+            3,
+            0
+          ],
+          "model_bytes": 3687398,
+          "model_sha256": "d70d7d45460966b4bc0b65f4f3c57f0dd9e9ddd0680297904c52f81763ba7059",
+          "model_version": [
+            3,
+            3,
+            0
+          ],
+          "extraction": "EXACT_RAW_UBJSON_MODEL_VALUE_SLICE_NO_REENCODING",
+          "scope": "INFERENCE_ONLY_TRAINING_RNG_STATE_NOT_RESTORED",
+          "target": "specific_energy_kwh_per_kg_meoh",
+          "target_booster_index": 2
+        },
+        {
+          "snapshot_bytes": 3027507,
+          "snapshot_sha256": "4ab6fe2168e05b45a041b44dee299a8f54548ba96c1931e4f599693d7b331c4b",
+          "config_bytes": 9356,
+          "config_sha256": "00c4b4913df0be9aadc4294b03f711db9cc91b275aa994da29d25faeef1e95e0",
+          "config_version": [
+            3,
+            3,
+            0
+          ],
+          "model_bytes": 3018120,
+          "model_sha256": "ab0d7d23a0b949db6355e90a0b919be696156f2d3ef4abe2eac72948994b0df7",
+          "model_version": [
+            3,
+            3,
+            0
+          ],
+          "extraction": "EXACT_RAW_UBJSON_MODEL_VALUE_SLICE_NO_REENCODING",
+          "scope": "INFERENCE_ONLY_TRAINING_RNG_STATE_NOT_RESTORED",
+          "target": "capex_proxy",
+          "target_booster_index": 1
+        },
+        {
+          "snapshot_bytes": 3003011,
+          "snapshot_sha256": "87086e6829d823f7898fb7e8a128bc28473b08bd8009b14293b833238fefbadb",
+          "config_bytes": 9356,
+          "config_sha256": "b5025238ac9b387c4080f10e97b39bdf34a1446e10ad549acab1c409543f46ff",
+          "config_version": [
+            3,
+            3,
+            0
+          ],
+          "model_bytes": 2993624,
+          "model_sha256": "c8d78ebc125f7c35d472f7e318810c24920c6df45a90d3731d58c2075929a74d",
+          "model_version": [
+            3,
+            3,
+            0
+          ],
+          "extraction": "EXACT_RAW_UBJSON_MODEL_VALUE_SLICE_NO_REENCODING",
+          "scope": "INFERENCE_ONLY_TRAINING_RNG_STATE_NOT_RESTORED",
+          "target": "capex_proxy",
+          "target_booster_index": 2
+        },
+        {
+          "snapshot_bytes": 3696149,
+          "snapshot_sha256": "a0d685a8ad6377bf6cc49e2edb7204c9dbbb38bb446058ecc478cde570f87028",
+          "config_bytes": 9330,
+          "config_sha256": "e0f43eae9d711b4d6ada2c25002f9f6e2586930918bf4d26fedd16a24b7493ff",
+          "config_version": [
+            3,
+            3,
+            0
+          ],
+          "model_bytes": 3686788,
+          "model_sha256": "8822923d5913ada27f7a9ec2151d9cc0cf13d9e78304a19e788659304fa9b9ba",
+          "model_version": [
+            3,
+            3,
+            0
+          ],
+          "extraction": "EXACT_RAW_UBJSON_MODEL_VALUE_SLICE_NO_REENCODING",
+          "scope": "INFERENCE_ONLY_TRAINING_RNG_STATE_NOT_RESTORED",
+          "target": "capex_proxy",
+          "target_booster_index": 3
+        },
+        {
+          "snapshot_bytes": 3673321,
+          "snapshot_sha256": "01450c43a6169b06a47a2e74493d9968cc86652982ab699c06edce558c3e07ec",
+          "config_bytes": 9350,
+          "config_sha256": "4d6ef67b1f0a4e9de843a83dab836f3eb0b9965d0921b8e42fbcac0145be4c11",
+          "config_version": [
+            3,
+            3,
+            0
+          ],
+          "model_bytes": 3663940,
+          "model_sha256": "fb4f662735729c0e702edd2a32acb2cf562617c4972aacdd215fee44259998a8",
+          "model_version": [
+            3,
+            3,
+            0
+          ],
+          "extraction": "EXACT_RAW_UBJSON_MODEL_VALUE_SLICE_NO_REENCODING",
+          "scope": "INFERENCE_ONLY_TRAINING_RNG_STATE_NOT_RESTORED",
+          "target": "capex_proxy",
+          "target_booster_index": 4
+        }
+      ],
+      "recovery_binding_sha256": "f322853bcffd066671061ea01484992108b853f43aec93b6bfbec2c7d5ff9f1c"
+    },
+    "selected_model_load_warning_count": 56147,
+    "selected_model_load_warning_messages": [
+      "Setting the shape on a NumPy array has been deprecated in NumPy 2.5.\nAs an alternative, you can create a new view using np.reshape (with copy=False if needed)."
+    ],
+    "confirmation_issued_vs_recomputed_max_abs_delta": {
+      "carbon_utilization": 1.1102230246251565e-16,
+      "specific_energy_kwh_per_kg_meoh": 1.4210854715202004e-14,
+      "capex_proxy": 5.551115123125783e-17
+    }
+  },
+  "bootstrap": {
+    "method": "paired row bootstrap percentile interval",
+    "replicates": 5000,
+    "seed": 20260826
+  },
+  "provenance": {
+    "protocol_config": {
+      "path": "handoff/V30_publication_pareto_local_validation/data/protocol_config.json",
+      "sha256": "8e04f94aa0065b84ed249dead75feb27393fda988b6aa46eaf89a8d4612f74a0"
+    },
+    "final_model_freeze": {
+      "path": "outputs/V30_publication_validation_execution/phase3_final_model/final_freeze/final_model_freeze.json",
+      "sha256": "7a0c9e9bf2613e396dc2d7341a72e75268a97e8775f6d2c433f80e9e20a99884"
+    },
+    "cross_conformal_freeze": {
+      "path": "outputs/V30_publication_validation_execution/phase3_final_model/final_freeze/conformal/cross_conformal_freeze.json",
+      "sha256": "125d955f8a0bfe00877f9075d6c8cb6a20630ec4f73b21b7803503ce3b55d437"
+    },
+    "confirmation_selection_freeze": {
+      "path": "outputs/V30_publication_validation_execution/phase3_confirmation96_issued/selection_freeze_record.json",
+      "sha256": "2f11839b83a7bf23a44d7432bfa3c808936d4c5515e7a55a5850a0d92921f007"
+    },
+    "evaluation_code": {
+      "path": "scripts/evaluate_v30_postfreeze_lockboxes.py",
+      "sha256": "aa66ce31b3a73606096907113295abe79c5a3b1c005ef976d0be70755dd81eb0"
+    }
+  },
+  "evaluation_binding_sha256": "f0a7cc9c6052c9cfac8c06ba9eb78c788f48db42ba58afc0768c8f5c07556969"
+}

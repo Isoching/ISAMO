@@ -1,0 +1,38 @@
+{
+  "development_2586.csv": {
+    "role": "train_and_grouped_conformal_only",
+    "rows": 2586,
+    "composition": {
+      "legacy": 2400,
+      "existing": 60,
+      "AL": [
+        32,
+        31,
+        32,
+        31
+      ]
+    }
+  },
+  "legacy_holdout_600.csv": {
+    "role": "historical_learner_guardrail_never_refit",
+    "rows": 600
+  },
+  "stop_30.csv": {
+    "role": "iterative_stop_and_variant_selection_never_train",
+    "rows": 30
+  },
+  "confirmation_94.csv": {
+    "role": "independent_postfreeze_confirmation_never_train",
+    "rows": 94,
+    "issued": 96
+  },
+  "fixed_region_60.csv": {
+    "role": "independent_fixed_region_validation_never_train",
+    "rows": 60
+  },
+  "global_converged_12.csv": {
+    "role": "descriptive_converged_subset_never_train",
+    "rows": 12,
+    "issued": 40
+  }
+}

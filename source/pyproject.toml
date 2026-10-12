@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "isamo-release"
+version = "0.30.0"
+description = "Portable V30 ISAMO research workflow with real development and validation datasets"
+requires-python = ">=3.12"
+dependencies = [
+  "numpy==2.5.1", "pandas==3.0.5", "scipy==1.18.0",
+  "scikit-learn==1.9.0", "joblib==1.5.3", "pymoo==0.6.2"
+]
+
+[project.optional-dependencies]
+learn = ["xgboost==3.3.0", "lightgbm==4.7.0"]
+plot = ["matplotlib==3.11.1"]
+
+[project.scripts]
+isamo = "isamo_release.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

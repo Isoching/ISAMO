@@ -1,0 +1,58 @@
+{
+  "schema_version": "V30-cross-conformal-freeze-1.0.0",
+  "generated_at_utc": "2026-08-26T03:04:10.874522+00:00",
+  "status": "FROZEN_BEFORE_LOCKBOX_OPENING",
+  "final_model_freeze_sha256": "7a0c9e9bf2613e396dc2d7341a72e75268a97e8775f6d2c433f80e9e20a99884",
+  "final_model_freeze_binding_sha256": "8a24b6f8c45ca0f56fa1d6a33407bec30030157d1f83590212a4b20d114405d6",
+  "selected_variant": "pooled_all_al",
+  "method": "five-fold source/cluster-grouped cross-conformal, absolute residual scaled by selected ensemble SD",
+  "grouping": "legacy Sobol rows are independent sample_id groups; existing60 share selected_source_run groups; each AL candidate retains its round-qualified cluster/candidate group",
+  "outer_fold_training": "clone the final selected five ensemble members and weights in each outer group fold; fit the selected CU residual-model architecture on outer-training ensemble residuals only",
+  "scale_floor_rule": "fixed target range multiplied by 1e-6; chosen and frozen before any final lockbox label",
+  "finite_sample_quantile_rule": "order statistic ceil((n+1)*0.95), capped at n",
+  "calibration_rows": 2586,
+  "unique_groups": 2531,
+  "fold_rows": {
+    "0": 518,
+    "1": 517,
+    "2": 517,
+    "3": 517,
+    "4": 517
+  },
+  "stop30_used": false,
+  "fixed_region60_used": false,
+  "global40_used": false,
+  "confirmation96_used": false,
+  "quantiles": {
+    "carbon_utilization": {
+      "nominal_coverage": 0.95,
+      "finite_sample_quantile": 2.783884955859183,
+      "effective_order_statistic_probability": 0.9505027068832174,
+      "scale_floor": 4.151761501694914e-07,
+      "calibration_rows": 2586
+    },
+    "specific_energy_kwh_per_kg_meoh": {
+      "nominal_coverage": 0.95,
+      "finite_sample_quantile": 3.2773427881345807,
+      "effective_order_statistic_probability": 0.9505027068832174,
+      "scale_floor": 4.070506407656649e-05,
+      "calibration_rows": 2586
+    },
+    "capex_proxy": {
+      "nominal_coverage": 0.95,
+      "finite_sample_quantile": 2.7171989147674593,
+      "effective_order_statistic_probability": 0.9505027068832174,
+      "scale_floor": 9.0830312269841e-07,
+      "calibration_rows": 2586
+    }
+  },
+  "score_file": {
+    "path": "outputs/V30_publication_validation_execution/phase3_final_model/final_freeze/conformal/cross_conformal_oof_scores.csv",
+    "bytes": 1008187,
+    "sha256": "94e89f41930d1461906d3556b46030ae39e21240f57e280ca6bdf2a184a1305b"
+  },
+  "score_matrix_sha256": "34209abb4f9339d305a163870adafa75393fe86dcaa7a44b1aa02cfcb8558358",
+  "protocol_config_sha256": "8e04f94aa0065b84ed249dead75feb27393fda988b6aa46eaf89a8d4612f74a0",
+  "analysis_code_sha256": "98a1cd71aa5bcea7aea2d0774e9d3abc0902ff8eee1d6be46e6ccf4cc8663c92",
+  "calibration_binding_sha256": "0ac0aeb2b2fd7c1f40fc6dbcadf9f5809e28b5ca64cb304ffa09d9ef37846d61"
+}
